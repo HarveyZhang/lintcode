@@ -18,7 +18,7 @@ class Solution:
 
             n_digit = 0
             while idx_abbr + n_digit < len_abbr and \
-                '0' <= abbr[idx_abbr + n_digit] <= '9':
+                abbr[idx_abbr + n_digit].isdigit():
                 n_digit += 1
 
             if n_digit > 0:
