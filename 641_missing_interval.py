@@ -10,13 +10,10 @@ class Solution:
         if not nums or upper < nums[0] or lower > nums[-1]:
             return [self.get_range_str(lower, upper)]
         ranges = []
-        new_nums = [lower - 1]
-        for num in nums:
-            if lower <= num <= upper:
-                new_nums.append(num)
-        new_nums.append(upper + 1)
-        for i in xrange(len(new_nums) - 1):
-            tmp_range = self.get_range_str(new_nums[i] + 1, new_nums[i + 1] - 1)
+        nums.insert(0, lower - 1)
+        nums.append(upper + 1)
+        for i in xrange(len(nums) - 1):
+            tmp_range = self.get_range_str(nums[i] + 1, nums[i + 1] - 1)
             if tmp_range:
                 ranges.append(tmp_range)
         return ranges
